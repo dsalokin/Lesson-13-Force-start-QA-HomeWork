@@ -1,6 +1,7 @@
 package gmail.salokin1991.tests;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -40,6 +41,23 @@ public class EvotorSiteTests extends TestBase {
         });
         step("Проверяем видимость элементов слайдера при повторной прокрутке", () -> {
             mainPage.checkingSliderItemsVisibility();
+        });
+    }
+
+    @Test
+    void loginTabTest() {
+        step("Открываем страницу https://evotor.ru/", () -> {
+            mainPage.openBasePage();
+        });
+        step("Нажимаем кнопку 'Личный кабинет' и переходим на новую вкладку", () -> {
+            mainPage.checkAndClickAccount();
+            mainPage.goToWindow1();
+        });
+        step("Проверяем наличие заголовка и отсутствие предупреждающего текста", () -> {
+            loginPage.checkingForm();
+        });
+        step("Проверяем наличие предупреждающего текста", () -> {
+            loginPage.checkingAfterLogin();
         });
     }
 }

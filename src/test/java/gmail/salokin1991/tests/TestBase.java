@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import gmail.salokin1991.config.CredentialConfig;
 import gmail.salokin1991.helpers.Attach;
+import gmail.salokin1991.pages.LoginPage;
 import gmail.salokin1991.pages.MainPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
@@ -19,6 +20,7 @@ public class TestBase {
             ConfigFactory.create(CredentialConfig.class);
 
     MainPage mainPage = new MainPage();
+    LoginPage loginPage = new LoginPage();
 
     @BeforeAll
     static void beforeAll() {
