@@ -30,7 +30,7 @@ dependencies {
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             "org.aeonbits.owner:owner:1.0.12",
             "org.assertj:assertj-core:3.19.0",
-            "org.junit.jupiter:junit-jupiter-api:$junitVersion")
+            "org.junit.jupiter:junit-jupiter:$junitVersion")
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:1.7.29",
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
@@ -65,8 +65,43 @@ tasks.withType(Test) {
     }
 }
 
-task main_page_tests(type: Test) {
+task evotor_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'evotor'
+    }
+}
+task main_page_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'evotor_main'
+    }
+}
+task login_page_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'evotor_login'
+    }
+}
+task market_page_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'evotor_market'
+    }
+}
+task blocker_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'BLOCKER'
+    }
+}
+task critical_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'CRITICAL'
+    }
+}
+task major_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'MAJOR'
+    }
+}
+task minor_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'MINOR'
     }
 }

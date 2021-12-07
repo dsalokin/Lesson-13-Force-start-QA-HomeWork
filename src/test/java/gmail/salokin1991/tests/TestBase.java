@@ -1,6 +1,7 @@
 package gmail.salokin1991.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import gmail.salokin1991.config.CredentialConfig;
 import gmail.salokin1991.helpers.Attach;
@@ -10,8 +11,12 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import static com.codeborne.selenide.Selenide.open;
+import static gmail.salokin1991.pages.StaticTestData.BASE_URL;
+import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
 
 public class TestBase {
@@ -25,7 +30,7 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
 
-        String selenoidUrl = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
+        String selenoidUrl = System.getProperty("url");
         String login = credentials.login();
         String password = credentials.password();
 
@@ -40,11 +45,17 @@ public class TestBase {
         Configuration.browserCapabilities = capabilities;
     }
 
+    @BeforeEach
+    public void beforeEach() {
+        step("Открываем страницу https://evotor.ru/", () -> open(BASE_URL));
+    }
+
     @AfterEach
     public void tearDown() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        Selenide.closeWindow();
     }
 }
