@@ -20,12 +20,10 @@ public class TestBase {
 
     MainPage mainPage = new MainPage();
 
-
-
     @BeforeAll
     static void beforeAll() {
 
-        String selenoidUrl = System.getProperty("url");
+        String selenoidUrl = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
         String login = credentials.login();
         String password = credentials.password();
 
