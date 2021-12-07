@@ -1,16 +1,21 @@
 package gmail.salokin1991.tests;
 
+import com.codeborne.selenide.Condition;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.attribute;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.element;
 import static io.qameta.allure.Allure.step;
 
 @Tag("evotor")
 public class EvotorSiteTests extends TestBase {
 
+    @Disabled
     @Test
     void headerMenuTest() {
         step("Открываем страницу https://evotor.ru/", () -> {
@@ -21,6 +26,20 @@ public class EvotorSiteTests extends TestBase {
         });
         step("Проверяем логотип", () -> {
             mainPage.checkingLogoImg();
+        });
+    }
+
+    @Disabled
+    @Test
+    void contentSlidesTest() {
+        step("Открываем страницу https://evotor.ru/", () -> {
+            mainPage.openBasePage();
+        });
+        step("Проверяем наличие элементов слайдера", () -> {
+            mainPage.checkingSliderContent();
+        });
+        step("Проверяем видимость элементов слайдера при повторной прокрутке", () -> {
+            mainPage.checkingSliderItemsVisibility();
         });
     }
 }
