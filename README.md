@@ -1,7 +1,17 @@
 # Lesson-13-Force-start-QA-HomeWork
 Домашнее задание к 13 уроку, разработка простого проекта под вакансию
-
+_____________________________________________________________________
 # Project base URL: https://evotor.ru/
+
+## Gradle tasks:
+
+#### clean evotor_tests -Durl=${URL}
+#### clean login_page_tests -Durl=${URL}
+#### clean market_page_tests -Durl=${URL}
+#### clean blocker_tests -Durl=${URL}
+#### clean critical_tests -Durl=${URL}
+#### clean major_tests -Durl=${URL}
+#### clean minor_tests -Durl=${URL}
 
 
 ## Technology stack:
