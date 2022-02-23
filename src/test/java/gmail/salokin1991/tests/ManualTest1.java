@@ -11,11 +11,11 @@ public class ManualTest1 {
 
     @Test
     @AllureId("6125")
-    @DisplayName("Manual Test 1")
+    @DisplayName("Now is autotest")
     @Owner("allure8")
     void manualTest1() {
-        step("Переход по ссылке url");
-        step("Какие-то шаги");
-        step("Проверка чего-либо");
+        step("Переход по ссылке 'google.com'");
+        step("Ввод в поисковую строку 'allure'");
+        step("Проверка выдачи на наличие 'allure'");
     }
 }
