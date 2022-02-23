@@ -11,7 +11,7 @@ public class ManualTest1 {
 
     @Test
     @AllureId("6125")
-    @DisplayName("Now is autotest")
+    @DisplayName("Manual Test 1")
     @Owner("allure8")
     void manualTest1() {
         step("Переход по ссылке 'google.com'");
